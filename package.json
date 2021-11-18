@@ -1,0 +1,21 @@
+{
+  "name": "shop_it",
+  "version": "1.0.0",
+  "description": "full e-commerce site using mern",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev":"SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
+    "prod":"SET NODE_ENV=PRODUCTION& nodemon backend/server"
+  },
+  "author": "Kalasa Ivan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
