@@ -1,5 +1,7 @@
 const Product = require('../models/product');
 
+const errorHandler = require('../utils/errorHandler');
+
 
 //create new product =>/api/v1/admin/product/new
 
@@ -29,10 +31,7 @@ exports.getSingleProduct = async (req, res, next)=>{
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    res.status(404).json({
-      success: false,
-      message:"Products not found"
-    })
+    return next(new errorHandler('product not found',404))
   }
 
   res.status(200).json({
@@ -46,7 +45,7 @@ exports.updateProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id)
   
   if (!product) {
-    res.status(404).json({
+    return res.status(404).json({
       success: false,
       message:"Product not found"
     })
@@ -70,10 +69,7 @@ exports.deleteProduct = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    res.status(404).json({
-      success: false,
-      message:"Product not found"
-    })
+    return next(new errorHandler('product not found',404))
   }
 
   await product.remove();
