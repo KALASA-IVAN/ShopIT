@@ -69,7 +69,7 @@ exports.deleteProduct = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    return next(new errorHandler('product not found',404))
+    return next(new errorHandler('product not found for deleting',404))
   }
 
   await product.remove();
