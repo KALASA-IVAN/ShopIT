@@ -10,16 +10,20 @@ class ApiFeatures {
                 $options:'i'
             }
         } : {}
-        console.log(keyword)
+        // console.log(keyword)
         this.query = this.query.find({...keyword})
         return this
     }
     filter() {
         const queryCopy = { ...this.queryStr };
-
+        
         //Removing fields from the copy
-
-        const removeFields = ['keyword', 'limit', 'page']
+        
+        const removeFields = ['keyword', 'limit', 'page'];
+        removeFields.forEach(el => delete queryCopy[el]);
+        // console.log(queryCopy);
+        this.query = this.query.find(queryCopy);
+        return this
         
     }
 }
