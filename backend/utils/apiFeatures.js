@@ -18,6 +18,9 @@ class ApiFeatures {
         const queryCopy = { ...this.queryStr };
 
         //Removing fields from the copy
+
+        const removeFields = ['keyword', 'limit', 'page']
+        
     }
 }
 
